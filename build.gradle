@@ -17,7 +17,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group 'com.domain.reverse'
 version '1.0-SNAPSHOT'
-sourceCompatibility = 15
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
