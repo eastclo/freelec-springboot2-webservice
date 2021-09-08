@@ -1,4 +1,4 @@
-package com.domain.reverse.springboot.web.dto;
+package com.domain.reverse.springboot.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
