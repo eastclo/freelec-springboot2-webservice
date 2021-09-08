@@ -1,5 +1,6 @@
 package com.domain.reverse.springboot.domain.posts;
 
+import com.domain.reverse.springboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import javax.persistence.Id;
 @Getter
 @NoArgsConstructor //기본생성자 자동 추가
 @Entity //테이블과 링크될 클래스임을 나타냄. 클래스의 카멜케이스 이름을 언더스코어 네이밍으로 테이블 이름을 매칭함.
-public class Posts {    //실제 DB테이블과 매칭될 클래스(Entity 클래스라고도 함)
+public class Posts extends BaseTimeEntity {    //실제 DB테이블과 매칭될 클래스(Entity 클래스라고도 함)
 
     @Id //해당 테이블의 PK필드를 나타냄
     @GeneratedValue(strategy = GenerationType.IDENTITY) //PK생성 규칙. 스트링부트2.0에서 GenerationType.IDENTITY를 추가해야 auto_increment가 됨
