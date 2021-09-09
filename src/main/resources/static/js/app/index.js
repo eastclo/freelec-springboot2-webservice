@@ -5,7 +5,7 @@ var main = {
             _this.save();
         });
 
-        $('#btn-update').on('click', function () {  //id가 btn-update인 HTML element에 click 이벤트가 발생하면 update함수 실행
+        $('#btn-update').on('click', function () {
             _this.update();
         });
 
@@ -43,7 +43,7 @@ var main = {
 
         $.ajax({
             type: 'PUT',
-            url: '/api/v1/posts/'+id,   //어느 게시글을 수정할지 URL Path로 구분하기 위해 id추가
+            url: '/api/v1/posts/'+id,
             dataType: 'json',
             contentType:'application/json; charset=utf-8',
             data: JSON.stringify(data)
@@ -61,8 +61,7 @@ var main = {
             type: 'DELETE',
             url: '/api/v1/posts/'+id,
             dataType: 'json',
-            contentType:'application/json; charset=utf-8',
-            data: JSON.stringify(data)
+            contentType:'application/json; charset=utf-8'
         }).done(function() {
             alert('글이 삭제되었습니다.');
             window.location.href = '/';
@@ -70,5 +69,7 @@ var main = {
             alert(JSON.stringify(error));
         });
     }
+
 };
+
 main.init();
