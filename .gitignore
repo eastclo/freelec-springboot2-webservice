@@ -7,3 +7,5 @@ out
 # Gradle
 .gradle
 /build/
+
+application-oauth.properties
