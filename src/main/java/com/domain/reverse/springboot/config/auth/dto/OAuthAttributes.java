@@ -60,7 +60,7 @@ public class OAuthAttributes {
                 .name(name)
                 .email(email)
                 .picture(picture)
-                .role(Role.GUEST) //가입 시 기본권한을 게스트로 사용
+                .role(Role.USER) //가입 시 기본권한을 게스트로 사용
                 .build();
     }
 }
