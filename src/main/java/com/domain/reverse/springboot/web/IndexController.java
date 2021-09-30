@@ -1,5 +1,7 @@
 package com.domain.reverse.springboot.web;
 
+import com.domain.reverse.springboot.config.auth.LoginUser;
+import com.domain.reverse.springboot.config.auth.dto.SessionUser;
 import com.domain.reverse.springboot.service.posts.PostsService;
 import com.domain.reverse.springboot.web.dto.PostsResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import javax.servlet.http.HttpSession;
 
 @RequiredArgsConstructor
 @Controller
@@ -15,8 +18,13 @@ public class IndexController {
     private final PostsService postsService;
 
     @GetMapping("/")
-    public String index(Model model) {  //서버 템플릿 엔진에서 사용할 수 있는 객체 저장할 수 있다.
+    public String index(Model model, @LoginUser SessionUser user) {  //서버 템플릿 엔진에서 사용할 수 있는 객체 저장할 수 있다.
         model.addAttribute("posts", postsService.findAllDesc());    //findAllDesc()로 가져온 결과를 posts로 index.mustache에 전달함.
+        //LoginUser 어노테이션을 추가하여 바로 가져옴
+        //SessionUser user = (SessionUser) httpSession.getAttribute("user"); //CustomOAuth2UserService에서 로그인 성공시 httpSession.setAttribute로 SessionUser를 저장함
+        if(user != null) { //세션에 저장된 값이 있을 때만 model에 userName으로 등록, 값이 없으면 model에 아무것도 없으므로 로그인 버튼이 보임(index.mustache)
+            model.addAttribute("user", user);
+        }
         return "index";
     }
 
@@ -32,4 +40,5 @@ public class IndexController {
 
         return "posts-update";
     }
+
 }
