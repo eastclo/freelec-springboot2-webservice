@@ -22,7 +22,7 @@ public class IndexController {
         model.addAttribute("posts", postsService.findAllDesc());    //findAllDesc()로 가져온 결과를 posts로 index.mustache에 전달함.
         SessionUser user = (SessionUser) httpSession.getAttribute("user"); //CustomOAuth2UserService에서 로그인 성공시 httpSession.setAttribute로 SessionUser를 저장함
         if(user != null) { //세션에 저장된 값이 있을 때만 model에 userName으로 등록, 값이 없으면 model에 아무것도 없으므로 로그인 버튼이 보임(index.mustache)
-            model.addAttribute("userName", user.getName());
+            model.addAttribute("user", user);
         }
         return "index";
     }
