@@ -12,6 +12,7 @@
                 {{/user}}
                 {{^user}} <!--user가 없다면, 로그아웃 상태-->
                     <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a> <!--스프링 시큐리티에서 기본적으로 제공하는 로그인 URL-->
+                    <a href="/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a> <!--네이버 로그인 URL은 applcation-oauth.properties에 등록한 redirect-uri에 맞춰 자동으로 등록 됨-->
                 {{/user}}
             </div>
         </div>
