@@ -1,9 +1,7 @@
 package com.domain.reverse.springboot.web;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Builder;
 import org.junit.Before;
-import org.mockito.Mock;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
@@ -25,10 +23,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -112,8 +106,6 @@ public class PostsApiControllerTest {
                 .build();
 
         String url = "http://localhost:" + port + "api/v1/posts/" + updateId;
-
-        HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
 
         //when
         mvc.perform(put(url)

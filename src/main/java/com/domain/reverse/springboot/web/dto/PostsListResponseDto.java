@@ -1,7 +1,6 @@
 package com.domain.reverse.springboot.web.dto;
 
 import com.domain.reverse.springboot.domain.posts.Posts;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import java.time.LocalDateTime;
 
