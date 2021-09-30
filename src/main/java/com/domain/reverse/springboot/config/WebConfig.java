@@ -15,6 +15,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-        argumentResolvers.add(loginUserArgumentResolver);
+        argumentResolvers.add(loginUserArgumentResolver);   //Spring에서 생성한 HandlerMethodArgumentResolver의 구현체 클래스를 인식할 수 있게 하려면
+                                                            //WebMvcConfigurer의 addArgumentResolvers를 통해 추가해야한다.
     }
 }
